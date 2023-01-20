@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 require('dotenv').config();
-//email, pages_show_list, pages_messaging, pages_read_engagement, pages_manage_metadata, pages_read_user_content, pages_manage_posts, pages_manage_engagement,
+
 app.use(express.json());
 const Facebook = require('facebook-node-sdk');
 const facebook = new Facebook({ appId: process.env.APP_ID, secret: process.env.APP_SECRET });
@@ -13,7 +13,8 @@ app.get('/login', function(req, res) {
 	const options = {
 		client_id: process.env.APP_ID,
 		redirect_uri: 'http://localhost:3000/login/facebook/callback',
-		scope: 'public_profile'
+		scope:
+			'email, pages_show_list, pages_messaging, pages_read_engagement, pages_manage_metadata, pages_read_user_content, pages_manage_posts, pages_manage_engagement,public_profile'
 	};
 	const loginUrl = `https://www.facebook.com/v8.0/dialog/oauth?client_id=${options.client_id}&redirect_uri=${options.redirect_uri}&scope=${options.scope}`;
 	res.redirect(loginUrl);
