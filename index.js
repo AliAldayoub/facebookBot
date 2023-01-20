@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.get('/login', function(req, res) {
 	const options = {
 		client_id: process.env.APP_ID,
-		redirect_uri: 'http://localhost:3000/login/facebook/callback',
+		redirect_uri: 'https://facebook-bot.vercel.app/login/facebook/callback',
 		scope:
 			'email, pages_show_list, pages_messaging, pages_read_engagement, pages_manage_metadata, pages_read_user_content, pages_manage_posts, pages_manage_engagement,public_profile'
 	};
@@ -27,7 +27,7 @@ app.get('/login/facebook/callback', function(req, res) {
 		{
 			client_id: process.env.APP_ID,
 			client_secret: process.env.APP_SECRET,
-			redirect_uri: 'http://localhost:3000/login/facebook/callback',
+			redirect_uri: 'https://facebook-bot.vercel.app/login/facebook/callback',
 			code: code
 		},
 		function(accessToken) {
