@@ -105,7 +105,8 @@ app.post('/webhook', (req, res) => {
 	const comment = req.body.entry[0].changes[0].value;
 
 	console.log(`Comment made: ${comment.message}`);
-	res.send('comment is ', comment);
+	console.log('comment is ', comment);
+	res.status(200);
 
 	// axios
 	// 	.post(`https://graph.facebook.com/${commentId}/comments`, {
