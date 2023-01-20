@@ -6,7 +6,9 @@ require('dotenv').config();
 app.use(express.json());
 const Facebook = require('facebook-node-sdk');
 const facebook = new Facebook({ appId: process.env.APP_ID, secret: process.env.APP_SECRET });
-
+app.git('/', (req, res) => {
+	res.status(200).json({ message: 'hello from facebook bot' });
+});
 app.get('/login', function(req, res) {
 	const options = {
 		client_id: process.env.APP_ID,
